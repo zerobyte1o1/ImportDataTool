@@ -1,0 +1,27 @@
+- name: 工厂
+  content: [2000,5000]
+  length:
+- name: 供应商编码
+  content: _number
+  length: 10
+- name: 发放版本号
+  content: _number
+  length: 6
+- name: 库存地点编码
+  content: _number
+  length: 8
+- name: 送货地点
+  content: _text
+  length: 20
+- name: 要求到货日期
+  content: 2023/02/28
+  length:
+- name: 需求数量
+  content: _number
+  length: 2
+- name: 物料编码
+  content: _number
+  length: 8
+- name: 备注
+  content: _letters
+  length: 15
