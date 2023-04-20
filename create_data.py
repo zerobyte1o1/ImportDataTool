@@ -22,7 +22,7 @@ def write_data(data: list):
 
 
 def create_data(total):
-    with open('data_rules.yaml', 'r') as file:
+    with open('data_rules.yaml', 'r',encoding='utf-8') as file:
         data = yaml.safe_load(file)
     result_data = []
     for i in range(total):
