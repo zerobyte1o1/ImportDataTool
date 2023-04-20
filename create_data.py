@@ -35,11 +35,13 @@ def create_data(total):
             elif item['content'] == '_number':
                 value = fake.random_number(digits=item['length'])
             elif item['content'] == '_phone':
-                value = fake.phone_number
+                value = fake.phone_number()
             elif item['content'] == '_email':
                 value = fake.email()
             elif type(item['content']) is list:
                 value = random.choice(item['content'])
+            elif type(item['content']) is None:
+                value = ''
             else:
                 value = item['content']
             list_data.append(value)
@@ -52,8 +54,6 @@ param=sys.argv
 if len(param) !=2:
     print('请输入正确的参数')
     sys.exit()
-try:
-    data = create_data(int(param[1]))
-    write_data(data)
-except:
-    print("参数请输入数字")
+
+data = create_data(int(param[1]))
+write_data(data)

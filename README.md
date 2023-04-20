@@ -4,10 +4,12 @@
 ###  使用方法 
   - pip install -r requirements.txt 
   - 将导入模板文件放在ImportDataTool 目录下
-  - 将data_rules.yaml跟随模板文件重置： python generated_yaml.py
+  - 将data_rules.yaml跟随模板文件重置： 
+    python generated_yaml
+    
   - 按照规则填写data_rules.yaml文件
-  - 创建数据脚本，命令行执行：
-    python create_data.py 10000
+  - 创建数据脚本，命令行执行： 
+    python create_data 10000
 
 ### data_rules.yaml文件填写规则
 ```
