@@ -39,6 +39,7 @@
 > - _number 随机length长度的数字
 > - _phone 随机手机号码（中国）该参数下length不生效
 > - _email 随机邮箱 该参数下length不生效
+> - _conn 数据库查询结果列举 length填写内容：[sql, host, database, username, password]
 > 2. content 参数的枚举：
 > - 可以使用列表，如[2000,5000],脚本会在列表范围内进行单选（目前不支持多选），length参数不生效
 > 3. content 直接输入：
