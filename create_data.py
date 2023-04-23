@@ -23,16 +23,24 @@ def write_data(data: list):
 
 
 class Conn_res:
-    res = []
-    colu = 0
+    res = list()
+    colu = int()
+    name = str()
 
     @classmethod
     def exe_sql(cls, sql, host, database, username, password):
-        if not cls.res:
+        has_name = False
+        for item in cls.res:
+            if cls.name == item["name"]:
+                cls.has_name = True
+                break
+        if not has_name:
             conn = cls.conn_postgres(host, database, username, password)
             cursor = conn.cursor()
             cursor.execute(sql)
-            cls.res = cursor.fetchall()
+            content = cursor.fetchall()
+            dict_content = {"content": content, "colu": cls.colu, "name": cls.name}
+            cls.res.append(dict_content)
 
     @classmethod
     def conn_postgres(cls, host, database, username, password):
@@ -68,15 +76,18 @@ def create_data(total):
                 value = ''
             elif item['content'] == '_conn':
                 Conn_res.exe_sql(item['length'][4], item['length'][0], item['length'][1], item['length'][2],
-                                         item['length'][3])
+                                 item['length'][3])
                 Conn_res.colu = j
+                Conn_res.name = item['name']
+
                 value = ''
             else:
                 value = item['content']
             list_data.append(value)
         result_data.append(list_data)
-        for k, item_ in enumerate(Conn_res.res):
-            result_data[k][Conn_res.colu] = item_
+        for item_res in Conn_res.res:
+            for k, item_content in enumerate(item_res["content"]):
+                result_data[k][item_res["colu"]] = item_content
 
     return result_data
 
