@@ -29,7 +29,7 @@ class Conn_res:
     @classmethod
     def exe_sql(cls, sql, host, database, username, password):
         if not cls.res:
-            conn=cls.conn_postgres(host, database, username, password)
+            conn = cls.conn_postgres(host, database, username, password)
             cursor = conn.cursor()
             cursor.execute(sql)
             cls.res = cursor.fetchall()
@@ -67,7 +67,7 @@ def create_data(total):
             elif type(item['content']) is None:
                 value = ''
             elif item['content'] == '_conn':
-                value = Conn_res.exe_sql(item['length'][4], item['length'][0], item['length'][1], item['length'][2],
+                Conn_res.exe_sql(item['length'][4], item['length'][0], item['length'][1], item['length'][2],
                                          item['length'][3])
                 Conn_res.colu = j
                 value = ''
