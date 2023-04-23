@@ -29,7 +29,7 @@ class Conn_res:
     @classmethod
     def exe_sql(cls, sql, host, database, username, password):
         if not cls.res:
-            cls.conn_postgres(host, database, username, password)
+            conn=cls.conn_postgres(host, database, username, password)
             cursor = conn.cursor()
             cursor.execute(sql)
             cls.res = cursor.fetchall()
